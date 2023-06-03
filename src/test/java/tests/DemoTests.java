@@ -1,58 +1,32 @@
 package tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.personal.page.HomePage;
+import org.personal.page.PageHelper;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 
 @Test
-public class DemoTests {
+public class DemoTests extends BaseTest{
 
-    private WebDriver driver;
+    private HomePage homePage;
 
-    @BeforeClass()
-    public void setupClass() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-
-        driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+    @BeforeMethod
+    public void login() {
+        PageHelper pageHelper = new PageHelper(driver);
+        homePage = pageHelper.login();
     }
 
     @Test
     public void test() {
-        driver.get("https://rc.alpha-sense.com");
-
-
-        driver.findElement(By.name("username")).sendKeys("alertfeedenabled.atester");
-        driver.findElement(By.id("next-step")).click();
-        driver.findElement(By.name("password")).sendKeys("AlphaAutoPass123!");
-        driver.findElement(By.xpath(".//button[@data-testid='loginSubmitButton']")).click();
-
-        WebElement searchButton = driver.findElement(By.xpath(".//button[@data-testid='searchButton']"));
-
-        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(searchButton));
-
-        Assert.assertTrue(searchButton.isDisplayed(), "Search button is not visible after signing in.");
-        searchButton.click();
-
+        Assert.assertTrue(homePage.isDisplayed(homePage.searchButton),
+                "Search button is not displaying after login.");
     }
 
-    @AfterClass
-    public void cleanUp() {
-        driver.close();
+    @AfterMethod
+    public void closeBrowser() {
+        driver.quit();
     }
 
 }
