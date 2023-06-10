@@ -6,21 +6,21 @@ import org.personal.Page;
 
 public class PageHelper extends Page {
 
+    UserNamePage userNamePage = PageFactory.initElements(driver, UserNamePage.class);
+
     public PageHelper(WebDriver driver) {
         super(driver);
     }
 
-    public void loadUrl() {
-        driver.get("https://rc.alpha-sense.com");
+    public void loadUrl(String url) {
+        driver.get(url);
     }
 
-    public HomePage login() {
-        loadUrl();
-        UserNamePage userNamePage = PageFactory.initElements(driver, UserNamePage.class);
-        userNamePage.sendKeys(userNamePage.userName, "alertfeedenabled.atester");
+    public HomePage login(String userName, String password) {
+        userNamePage.sendKeys(userNamePage.userName, userName);
         PasswordPage passwordPage = userNamePage.clickOnNextButton();
 
-        passwordPage.sendKeys(passwordPage.password, "AlphaAutoPass123!");
+        passwordPage.sendKeys(passwordPage.password, password);
         return passwordPage.clickOnNextButton();
     }
 }
