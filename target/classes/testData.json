@@ -1,0 +1,10 @@
+[
+  {
+    "userName": "alertfeedenabled.atester",
+    "password": "AlphaAutoPass123!"
+  },
+  {
+    "userName": "incorrectUser",
+    "password": "incorrectPwd"
+  }
+]
