@@ -4,10 +4,12 @@ import org.personal.UserData;
 import org.personal.Users;
 import org.personal.page.HomePage;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 @Test
-public class DemoTests extends BaseTest {
+public class DemoTest2 extends BaseTest {
 
     private HomePage homePage;
     private final UserData userData = Users.alertFeedEnabled;
@@ -18,19 +20,19 @@ public class DemoTests extends BaseTest {
     }
 
     @Test
+    public void testWithHardCodedData() {
+        homePage = pageHelper.login("alertfeedenabled.atester", "AlphaAutoPass123!");
+        Assert.assertTrue(homePage.isDisplayed(homePage.searchButton),
+                "Search button is not displaying after login.");
+        extentReportHelper.setStatus("pass", "login done", "with hardcode data");
+    }
+
+    @Test
     public void testWithPropertiesData() {
         homePage = pageHelper.login(prop.getValue("username"), prop.getValue("password"));
         Assert.assertTrue(homePage.isDisplayed(homePage.searchButton),
                 "Search button is not displaying after login.");
         extentReportHelper.setStatus("pass", "login done", "with properties data");
-    }
-
-    @Test
-    public void testWithJsonData() {
-        homePage = pageHelper.login(userData.getUserName(), userData.getPassword());
-        Assert.assertTrue(homePage.isDisplayed(homePage.searchButton),
-                "Search button is not displaying after login.");
-        extentReportHelper.setStatus("pass", "login done", "with json data");
     }
 
     @AfterMethod
