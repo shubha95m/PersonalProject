@@ -20,7 +20,7 @@ public class DemoTests extends BaseTest {
     @Test
     public void testWithPropertiesData() {
         homePage = pageHelper.login(prop.getValue("username"), prop.getValue("password"));
-        Assert.assertTrue(homePage.isDisplayed(homePage.searchButton),
+        Assert.assertTrue(homePage.isSearchButtonDisplayed(),
                 "Search button is not displaying after login.");
         extentReportHelper.setStatus("pass", "login done", "with properties data");
     }
@@ -28,14 +28,9 @@ public class DemoTests extends BaseTest {
     @Test
     public void testWithJsonData() {
         homePage = pageHelper.login(userData.getUserName(), userData.getPassword());
-        Assert.assertTrue(homePage.isDisplayed(homePage.searchButton),
+        Assert.assertTrue(homePage.isSearchButtonDisplayed(),
                 "Search button is not displaying after login.");
         extentReportHelper.setStatus("pass", "login done", "with json data");
-    }
-
-    @AfterMethod
-    public void closeBrowser() {
-        driver.quit();
     }
 
 }

@@ -58,6 +58,13 @@ public class BaseTest {
         extentReportHelper = new ExtentReportHelper(testName, driver);
     }
 
+    @AfterMethod
+    public void postMethod() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+
     @AfterTest
     public void posTest() {
         extentReportHelper.flush();

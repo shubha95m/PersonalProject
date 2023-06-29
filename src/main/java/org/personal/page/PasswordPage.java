@@ -18,7 +18,7 @@ public class PasswordPage extends Page {
     public WebElement nextButton;
 
     public HomePage clickOnNextButton() {
-        click(nextButton);
+        click(nextButton, "nextButton");
         return new HomePage(driver);
     }
 

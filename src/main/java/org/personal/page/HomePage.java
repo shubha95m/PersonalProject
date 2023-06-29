@@ -14,6 +14,10 @@ public class HomePage extends Page {
     @FindBy(xpath = ".//button[@data-testid='searchButton']")
     public WebElement searchButton;
 
+    public boolean isSearchButtonDisplayed() {
+        return isDisplayed(searchButton, "searchButton");
+    }
+
     public void isLoaded() {
         waitForElement(searchButton, 45);
     }

@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 
 public class ExtentReportHelper {
 
@@ -32,13 +33,13 @@ public class ExtentReportHelper {
         log = extent.createTest(testName);
     }
 
-    public void setStatus(String status, String title, String details) {
+    public void setStatus(String status, String title, String... details) {
         if (status.equals("pass")) {
             log.info("screenshot path is:");
-            log.pass(details, MediaEntityBuilder.createScreenCaptureFromPath(takeScreenshot(), title).build());
+            log.pass(Arrays.toString(details), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenshot(), title).build());
         } else {
             log.info("screenshot path is:");
-            log.fail(details, MediaEntityBuilder.createScreenCaptureFromPath(takeScreenshot(), title).build());
+            log.fail(Arrays.toString(details), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenshot(), title).build());
         }
     }
 

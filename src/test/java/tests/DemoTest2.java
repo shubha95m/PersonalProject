@@ -1,5 +1,9 @@
 package tests;
 
+import io.qameta.allure.Allure;
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
+import io.qameta.allure.testng.AllureTestNg;
 import org.personal.UserData;
 import org.personal.Users;
 import org.personal.page.HomePage;
@@ -19,20 +23,21 @@ public class DemoTest2 extends BaseTest {
         pageHelper.loadUrl(prop.getValue("url"));
     }
 
+    @Description("Checking allure description")
     @Test
     public void testWithHardCodedData() {
         homePage = pageHelper.login("alertfeedenabled.atester", "AlphaAutoPass123!");
-        Assert.assertTrue(homePage.isDisplayed(homePage.searchButton),
+        Assert.assertTrue(homePage.isSearchButtonDisplayed(),
                 "Search button is not displaying after login.");
-        extentReportHelper.setStatus("pass", "login done", "with hardcode data");
+        extentReportHelper.setStatus("pass", "login done with hardcode data");
     }
 
     @Test
     public void testWithPropertiesData() {
         homePage = pageHelper.login(prop.getValue("username"), prop.getValue("password"));
-        Assert.assertTrue(homePage.isDisplayed(homePage.searchButton),
+        Assert.assertTrue(homePage.isSearchButtonDisplayed(),
                 "Search button is not displaying after login.");
-        extentReportHelper.setStatus("pass", "login done", "with properties data");
+        extentReportHelper.setStatus("pass", "login done");
     }
 
     @AfterMethod

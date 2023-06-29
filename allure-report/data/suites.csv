@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Sun Jun 18 15:39:05 IST 2023","Sun Jun 18 15:39:05 IST 2023","7","Default Suite","PersonalProject","tests.DemoTest2","tests.DemoTest2","methodSetup","methodSetup",""
+"passed","Sun Jun 18 16:14:54 IST 2023","Sun Jun 18 16:14:58 IST 2023","3920","Test Suite","Test Case 1","tests.DemoTests","tests.DemoTests","testWithJsonData","testWithJsonData",""
+"passed","Sun Jun 18 16:14:44 IST 2023","Sun Jun 18 16:14:48 IST 2023","3533","Test Suite","Test Case 1","tests.DemoTest2","tests.DemoTest2","testWithPropertiesData","testWithPropertiesData",""
+"passed","Sun Jun 18 16:14:34 IST 2023","Sun Jun 18 16:14:39 IST 2023","4512","Test Suite","Test Case 1","tests.DemoTest2","tests.DemoTest2","testWithHardCodedData","testWithHardCodedData","Checking allure description"
+"passed","Sun Jun 18 16:15:03 IST 2023","Sun Jun 18 16:15:07 IST 2023","3460","Test Suite","Test Case 1","tests.DemoTests","tests.DemoTests","testWithPropertiesData","testWithPropertiesData",""

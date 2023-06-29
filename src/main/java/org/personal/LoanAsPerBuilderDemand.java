@@ -12,9 +12,9 @@ public class LoanAsPerBuilderDemand {
 	 */
 
     private final static float interestRate = 8.65f;
-    private final static List<Integer> demands = Arrays.asList(529235, 433011, 962248, 962249, 1443372 ,962247, 481124, 481125, 481126, 481127, 962250, 481128, 481129);
+    private final static List<Integer> demands = Arrays.asList(467208, 1886976, 1415232, 471744, 471744 ,471744, 471744, 471744, 943488, 471744, 471744, 471744, 471744);
 
-    private final static List<Integer> paidAmount = Arrays.asList(200000, 200000, 300000, 200000, 300000, 200000, 200000, 200000, 300000, 200000, 300000, 200000, 200000);
+    private final static List<Integer> paidAmount = Arrays.asList(0, 0, 0, 400000, 300000, 300000, 200000, 200000, 300000, 300000, 200000, 200000, 300000);
 
     private static int totalPrinciple = 0;
     private static int principle = 0;
@@ -28,7 +28,7 @@ public class LoanAsPerBuilderDemand {
         for (int i = 0; i < 40; i++) {
             AtomicReference<Float> monthlyInterest = new AtomicReference<>((float) 0);
 
-            if (i % 3 == 0) {
+            if (i % 4 == 0) {
                 int index = i/3;
                 if (index <= (demands.size() - 1)) {
                     principle = demands.get(index) - paidAmount.get(index);
