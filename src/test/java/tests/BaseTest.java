@@ -46,7 +46,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void methodSetup(ITestResult result) {
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().driverVersion("120.0.6099.199").setup();
         driver = new ChromeDriver();
         pageHelper = new PageHelper(driver);
 

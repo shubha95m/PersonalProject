@@ -9,6 +9,11 @@
     <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="central" />
+      <option name="url" value="https://dev.alpha-sense.com/nexus/content/groups/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="central" />
       <option name="url" value="https://dev.alpha-sense.com:8987/nexus/content/groups/public" />
     </remote-repository>
     <remote-repository>

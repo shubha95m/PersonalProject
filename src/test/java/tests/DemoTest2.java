@@ -20,6 +20,7 @@ public class DemoTest2 extends BaseTest {
 
     @BeforeMethod
     public void login() {
+        driver.get("https://google.com");
         pageHelper.loadUrl(prop.getValue("url"));
     }
 
